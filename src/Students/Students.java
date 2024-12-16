@@ -120,6 +120,7 @@ import java.util.ArrayList;
 
        for (Student s:list)
        {
+
            System.out.println("\n"+
                              "\n   ------------------------------------------ "
                              +"\n                    "+s.getId()+

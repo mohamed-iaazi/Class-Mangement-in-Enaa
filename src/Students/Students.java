@@ -33,7 +33,7 @@ import java.util.ArrayList;
                                *                                         *
                                *******************************************
                    
-             
+                   
                                      (1) Add New Student
                                      (2) Delete Student
                                      (3) Update Student
@@ -116,6 +116,7 @@ import java.util.ArrayList;
 
     }
     private  static  void S_Display(){
+
 
        for (Student s:list)
        {

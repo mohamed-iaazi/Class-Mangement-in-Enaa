@@ -10,11 +10,28 @@ public class Student extends Person {
 
 
 
+
+
     @Override
     public void Display() {
 
         System.out.print( "  First Name : "+getFirstName()+"\n  Last Name : "+getLastName()
                 + "\n  Number phone : "+getPhone()+"\n  Email : "
                 +getEmail()+"\n  Trainer : "+Trainer+"\n  Class : "+ getN_Class());
+    }
+
+    @Override
+    public void Update() {
+
+    }
+
+    @Override
+    public void Delete() {
+
+    }
+
+    @Override
+    public void Add() {
+
     }
 }

@@ -2,13 +2,14 @@ package Menu;
 
 import Model.Student;
 import Utils.Input;
-import services.Students;
 
 public class StudentMenu {
     static  private int Id,choose;
     static  boolean error=false;
+    static  Student student = new Student();
 
-    public   static void S_Menu(){
+
+    public  static void S_Menu(){
         while (choose != 5) {
             System.out.println("""
                    
@@ -25,8 +26,7 @@ public class StudentMenu {
                                      (2) Delete Student
                                      (3) Update Student
                                      (4) Display All Students
-                                     (5) Update  The  Class
-                                     (6) Back To Main Menu
+                                     (5) Back To Main Menu
                    
                    
                    
@@ -46,19 +46,15 @@ public class StudentMenu {
                         break;
                     case 3:
                         System.out.println("\n    Update Student\n");
-
+                        update();
                         break;
                     case 4:
                         System.out.println("\n    Display All Students\n");
                         display();
 
                         break;
-                    case 5:
-                        System.out.println("\n    Update  The  Class\n");
-                        update();
 
-                        break;
-                    case 6:
+                    case 5:
                         System.out.println("\n     ################# Back  ################## \n");
                         break;
                 }
@@ -68,7 +64,6 @@ public class StudentMenu {
             }
         }
     }
-
     private static  void add(){
         do {
             try {
@@ -85,7 +80,7 @@ public class StudentMenu {
                 System.out.print("     Enter The Trainer of the Student :");
                 String Trainer=Input.getinput();
                 Id=Id+1;
-                Students.AddSt(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
+                student.Add(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
                 error=false;
             }
             catch (Exception e){
@@ -95,21 +90,20 @@ public class StudentMenu {
         }
         while (error);
     }
-
     private static void display(){
-        Students.display();
+        student.Display();
     }
     private static void delete(){
         System.out.print("Enter The ID Of the Student : ");
         int id=Integer.parseInt(Input.getinput());
-        Students.delete(id);
+        student.Delete(id);
     }
     private static void update(){
-        if (Students.display()) {
-
-
+        error=false;
+        if (student.Display()) {
             do {
                 try {
+                    System.out.println("\n\n   update try!");
                     System.out.print("     Enter The First name of the Student: ");
                     String FirstName= Input.getinput();
                     System.out.print("     Enter The Last name of the Student: ");
@@ -123,7 +117,8 @@ public class StudentMenu {
                     System.out.print("     Enter The Trainer of the Student :");
                     String Trainer=Input.getinput();
                     Id=Id+1;
-                    Students.Update(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
+
+                    student.Update(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
                     error=false;
                 }
                 catch (Exception e){

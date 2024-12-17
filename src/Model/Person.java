@@ -9,6 +9,9 @@ public  abstract  class Person {
     private  int  Phone;
     private static   int  N_Class;
 
+    public Person(){
+
+    }
 
     public Person(int id, String firstName, String lastName, String email, int phone, int n_Class) {
 
@@ -68,10 +71,10 @@ public  abstract  class Person {
     public void setId(int id) {
         Id = id;
     }
-    public   abstract void Display();
-    public   abstract void Update();
-    public   abstract void Delete();
-    public   abstract void Add();
+    public   abstract boolean Display();
+    public   abstract void Update(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer);
+    public   abstract void Delete(int Id);
+    public   abstract void Add(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer);
 
 
 }

@@ -84,4 +84,10 @@ public class Student extends Person {
         list.add(new Student(Id, f, l, Email, Phone, N_Class, Trainer));
     }
 
+    @Override
+    public void Update(int Id, String f, String l, String Email, int Phone, int Salary, String sp, int N_Class) {
+
+    }
+
+
 }

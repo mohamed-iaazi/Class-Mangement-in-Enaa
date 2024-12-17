@@ -75,6 +75,7 @@ public  abstract  class Person {
     public   abstract void Update(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer);
     public   abstract void Delete(int Id);
     public   abstract void Add(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer);
+    public   abstract void Update(int Id, String f, String l, String Email, int Phone,int Salary,String sp,int N_Class);
 
 
 }

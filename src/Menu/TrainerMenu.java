@@ -4,7 +4,7 @@ import Model.Trainer;
 import Utils.Input;
 
 public class TrainerMenu {
-    static  private int Id,choose;
+    private static int choose,Id;
     static  boolean error=false;
     static Trainer trainer = new Trainer();
 
@@ -15,7 +15,7 @@ public class TrainerMenu {
                                *******************************************
                                *                                         *
                                *                                         *
-                               *             Student Menu                *
+                               *             Trainer Menu                *
                                *                                         *
                                *                                         *
                                *******************************************
@@ -36,37 +36,41 @@ public class TrainerMenu {
                 System.out.print("   Enter Your Choice : ");
                 choose = Integer.parseInt(Input.getinput());
                 switch (choose) {
-                    case 1 -> {
+                    case 1 :
                         System.out.println("\n    Add New Trainer\n");
                         Tadd();
+                        break;
 
-                    }
 
-                    case 2->
-                            {
+
+                    case 2 :
                         System.out.println("\n    Delete A trainer\n");
-                       Tdelete();
-                            }
+                        Tdelete();
+                        break;
 
-                    case 3->{
+                    case 3 :
                         System.out.println("\n    Update A Trainer info\n");
                         Tupdate();
-                    }
+                        break;
 
-                    case 4->{
-                        System.out.println("\n    Display All Trainers \n") ;
+                    case 4 :
+                        System.out.println("\n    Display All Trainers \n");
                         Tassd();
-                    }
+                        break;
 
-                    case 5-> {
-                        System.out.println("\n    Associated To class\n") ;
+                    case 5 :
+                        System.out.println("\n    Associated To class\n");
                         Tdisplay();
-                    }
+                        break;
 
-                    case 6->
+                    case 6 :
                         System.out.println("\n     ################# Back  ################## \n");
 
+                        break;
+
                 }
+
+
 
             } catch (Exception e) {
                 System.out.println("An Error Occured");
@@ -144,9 +148,19 @@ public class TrainerMenu {
     }
 
     public static void Tassd(){
+        // get the user iid to update
+        System.out.print("\n\n   Enter The Id of The trainer  : ");
+        int id=Integer.parseInt(Input.getinput());
+        System.out.print("\n\n   Enter The Number Of The Class You Want To associate : ");
+        int c=Integer.parseInt(Input.getinput());
+        // call the assosiate function in the trainer model  adn it takes two param
+        Trainer.ass(id,c);
+
 
     }
     public static void Tdisplay(){
+
+            trainer.Display();
 
     }
 }

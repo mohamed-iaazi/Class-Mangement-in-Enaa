@@ -69,4 +69,9 @@ public  abstract  class Person {
         Id = id;
     }
     public   abstract void Display();
+    public   abstract void Update();
+    public   abstract void Delete();
+    public   abstract void Add();
+
+
 }

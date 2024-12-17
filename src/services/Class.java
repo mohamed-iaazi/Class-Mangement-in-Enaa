@@ -1,4 +1,4 @@
-package Classes;
+package services;
 
 public class Class {
 

@@ -1,4 +1,4 @@
-package Students;
+package services;
 
 import Model.Student;
 import Utils.Input;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 
 
-   public static   void S_Menu(){
+    public    void S_Menu(){
        while (choose != 5) {
            System.out.println("""
                    
@@ -51,7 +51,7 @@ import java.util.ArrayList;
                switch (choose) {
                    case 1:
                        System.out.println("\n    Add New Student\n");
-                       S_Add();
+                       S_Add(0);
                        break;
                    case 2:
                        System.out.println("\n    Delete Student\n");
@@ -79,7 +79,7 @@ import java.util.ArrayList;
            }
        }
    }
-    private static  void S_Add(){
+    public   void S_Add(int id){
 
         do {
             try {
@@ -111,11 +111,11 @@ import java.util.ArrayList;
 
 
     }
-    private  static  void S_Delete(){
+    public   void S_Delete(){
 
 
     }
-    private  static  void S_Display(){
+    public     void S_Display(){
 
 
        for (Student s:list)
@@ -135,11 +135,19 @@ import java.util.ArrayList;
        }
 
     }
-    private  static  void S_Update(){
+    public     void S_Update(){
+     System.out.print("Enter The Fisrt Name of the Student : ");
+     FirstName=Input.getinput();
+     for (Student s:list){
+         if (FirstName.equals(s.getFirstName())){
 
+
+         }
+
+     }
 
     }
-    private static  void S_UpdateClass(){
+    public   void S_UpdateClass(){
 
     }
 }

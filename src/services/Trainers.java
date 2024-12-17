@@ -1,4 +1,4 @@
-package Trainers;
+package services;
 
 public class Trainers {
 }

@@ -38,19 +38,19 @@ public class StudentMenu {
                 switch (choose) {
                     case 1:
                         System.out.println("\n    Add New Student\n");
-                        add();
+                        Sadd();
                         break;
                     case 2:
                         System.out.println("\n    Delete Student\n");
-                       delete();
+                       Sdelete();
                         break;
                     case 3:
                         System.out.println("\n    Update Student\n");
-                        update();
+                        Supdate();
                         break;
                     case 4:
                         System.out.println("\n    Display All Students\n");
-                        display();
+                        Sdisplay();
 
                         break;
 
@@ -64,7 +64,7 @@ public class StudentMenu {
             }
         }
     }
-    private static  void add(){
+    private static  void Sadd(){
         do {
             try {
                 System.out.print("     Enter The First name of the Student: ");
@@ -90,15 +90,15 @@ public class StudentMenu {
         }
         while (error);
     }
-    private static void display(){
+    private static void Sdisplay(){
         student.Display();
     }
-    private static void delete(){
+    private static void Sdelete(){
         System.out.print("Enter The ID Of the Student : ");
         int id=Integer.parseInt(Input.getinput());
         student.Delete(id);
     }
-    private static void update(){
+    private static void Supdate(){
         error=false;
         if (student.Display()) {
             do {

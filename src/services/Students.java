@@ -1,153 +1,47 @@
 package services;
 
+import Model.Person;
 import Model.Student;
 import Utils.Input;
 
 import java.util.ArrayList;
 
  public class Students  {
- static  private int Id,choose;
- static  boolean error=false;
- static  private  String FirstName;
- static  private  String  LastName;
- static  private  String  Email;
- static  private  String  Phone;
- static  private  int  N_Class;
- static  private  String  Trainer;
-   static ArrayList<Student> list=new ArrayList<>();
+
+ static ArrayList<Student> list=new ArrayList<>();
 
 
+    public static void AddSt(int Id,String f,String l,String Email,int Phone,int N_Class,String Trainer ){
+        list.add(new Student(Id,f,l,Email,Phone,N_Class,Trainer));
+    }
 
-
-
-
-    public    void S_Menu(){
-       while (choose != 5) {
-           System.out.println("""
-                   
-                               *******************************************
-                               *                                         *
-                               *                                         *
-                               *             Student Menu                *
-                               *                                         *
-                               *                                         *
-                               *******************************************
-                   
-                   
-                                     (1) Add New Student
-                                     (2) Delete Student
-                                     (3) Update Student
-                                     (4) Display All Students
-                                     (5) Update  The  Class
-                                     (6) Back To Main Menu
-                   
-                   
-                   
-                   
-                   """);
-           try {
-               System.out.print("   Enter Your Choice : ");
-               choose = Integer.parseInt(Input.getinput());
-               switch (choose) {
-                   case 1:
-                       System.out.println("\n    Add New Student\n");
-                       S_Add(0);
-                       break;
-                   case 2:
-                       System.out.println("\n    Delete Student\n");
-                       S_Delete();
-                       break;
-                   case 3:
-                       System.out.println("\n    Update Student\n");
-                       S_Update();
-                       break;
-                       case 4:
-                       System.out.println("\n    Display All Students\n");
-                       S_Display();
-                       break;
-                       case 5:
-                           System.out.println("\n    Update  The  Class\n");
-
-                           break;
-                   case 6:
-                       System.out.println("\n     ################# Back  ################## \n");
-                       break;
-               }
-
-           } catch (Exception e) {
-               System.out.println("An Error Occured");
-           }
-       }
-   }
-    public   void S_Add(int id){
-
-        do {
-            try {
-                System.out.print("     Enter The First name of the Student: ");
-                FirstName=Input.getinput();
-                System.out.print("     Enter The Last name of the Student: ");
-                LastName=Input.getinput();
-                System.out.print("     Enter The Email of the Student: ");
-                Email=Input.getinput();
-                System.out.print("     Enter The Phone of the Student :");
-                Phone=Input.getinput();
-                System.out.print("     Enter The Class of the Student :");
-                N_Class=Integer.parseInt(Input.getinput());
-                System.out.print("     Enter The Trainer of the Student :");
-                Trainer=Input.getinput();
-                Id=Id+1;
-                list.add(new Student(Id,FirstName,LastName,Email,Phone,N_Class,Trainer));
-                error=false;
-            }
-            catch (Exception e){
-                System.out.println("  Oops An Error Occured  ");
-                error=true;
+    public  static void display(){
+        if (list.isEmpty()){
+            System.out.println("\n\n   Ops No Student To Display ");
+        }
+        else {
+            for (Student s : list) {
+                s.Display();
             }
         }
-        while (error);
+        }
 
+        public static  void delete(int id){
+        boolean found=false;
+        for(int i=0;i<list.size();i++){
+           if (id==list.get(i).getId()){
+               id=i;
+               found=true;
+           }
+        }
+        if (found) {
+            list.remove(id);
+            System.out.println("\n\n      Deleted With Success");
 
-
-
-
+        }
+        else {
+            System.out.println("\n\n      Ops Not Found");
+        }
+        }
     }
-    public   void S_Delete(){
 
-
-    }
-    public     void S_Display(){
-
-
-       for (Student s:list)
-       {
-
-           System.out.println("\n"+
-                             "\n   ------------------------------------------ "
-                             +"\n                    "+s.getId()+
-                             "\n   ------------------------------------------ "
-             
-                              +"\n"+s.toString()+
-
-                               
-                              "\n   ------------------------------------------"+
-                              "\n   ------------------------------------------  ");
-
-       }
-
-    }
-    public     void S_Update(){
-     System.out.print("Enter The Fisrt Name of the Student : ");
-     FirstName=Input.getinput();
-     for (Student s:list){
-         if (FirstName.equals(s.getFirstName())){
-
-
-         }
-
-     }
-
-    }
-    public   void S_UpdateClass(){
-
-    }
-}

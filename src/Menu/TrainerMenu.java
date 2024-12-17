@@ -105,6 +105,7 @@ public class TrainerMenu {
         int id=Integer.parseInt(Input.getinput());
         trainer.Delete(id);
 
+
     }
     public  static void Tupdate(){
         error=false;

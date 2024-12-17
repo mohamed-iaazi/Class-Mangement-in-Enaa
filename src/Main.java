@@ -1,3 +1,4 @@
+import Menu.StudentMenu;
 import services.Students;
 import Utils.Input;
 
@@ -41,7 +42,7 @@ public class Main  {
             switch (choose){
                 case 1:
                     System.out.println("\n   Welcome to Enaa Mangement System Students\n");
-                    Students.S_Menu();
+                    StudentMenu.S_Menu();
 
                     break;
                 case 2:

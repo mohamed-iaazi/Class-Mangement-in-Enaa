@@ -9,6 +9,9 @@ public class Trainer extends Person {
         this.salary = salary;
         this.sp = sp;
     }
+    public Trainer(){
+
+    }
 
     @Override
     public boolean Display() {

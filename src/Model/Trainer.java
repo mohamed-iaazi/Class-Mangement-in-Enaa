@@ -25,10 +25,10 @@ return false;
         }
         else {
             for (int i = 0; i < list.size(); i++) {
-                System.out.print("\n\n   The Id : " + list.get(i).getId() + " The Trainer Full Name is " +
-                        list.get(i). getFirstName() + " " +  list.get(i).getLastName() + "\n The Email is : "
-                        +  list.get(i).getEmail() + "\n Phone Number : " +  list.get(i).getPhone() + "\n The Class Number : "
-                        +  list.get(i).getN_Class() + "\n The Salary : " +  list.get(i).salary + "The Specialisation : " + list.get(i).sp);
+                System.out.print("\n\n  The Id : " + list.get(i).getId() + "\n  The Trainer Full Name is " +
+                        list.get(i). getFirstName() + " " +  list.get(i).getLastName() + "\n  The Email is : "
+                        +  list.get(i).getEmail() + "\n  Phone Number : " +  list.get(i).getPhone() + "\n  The Class Number : "
+                        +  list.get(i).getN_Class() + "\n  The Salary : " +  list.get(i).salary + "  The Specialisation : " + list.get(i).sp);
             }
             return true;
         }

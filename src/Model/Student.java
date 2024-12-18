@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Student extends Person {
     private String  Trainer;
+
     static ArrayList<Student> list = new ArrayList<>();
 
 
@@ -15,6 +16,7 @@ public class Student extends Person {
     public Student(int id, String firstName, String lastName, String email, int phone, int n_Class, String trainer) {
         super(id, firstName, lastName, email, phone, n_Class);
         Trainer=trainer;
+
     }
 
 
@@ -28,7 +30,7 @@ public class Student extends Person {
         }
         else {
             for (int i=0;i< list.size();i++) {
-                System.out.print( "\n\n  First Name : "+list.get(i).getFirstName()+"\n  Last Name : "+list.get(i).getLastName()
+                System.out.print( "\n\n  The Id : "+list.get(i).getId()+"\n  First Name : "+list.get(i).getFirstName()+"\n  Last Name : "+list.get(i).getLastName()
                         + "\n  Number phone : "+getPhone()+"\n  Email : "
                         +list.get(i).getEmail()+"\n  Trainer : "+ list.get(i).Trainer+"\n  Class : "+list.get(i).getN_Class());
             }

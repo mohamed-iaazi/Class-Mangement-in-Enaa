@@ -2,37 +2,20 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Class extends Person{
+public class Class {
 
 
     private  ArrayList<Student> students =new ArrayList<>();
     private String Trainers ;
+    private  String ClassName;
+    private  int Id;
 
 
-    @Override
-    public boolean Display() {
-        return false;
-    }
-
-    @Override
-    public void Update(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer) {
-
-    }
-
-    @Override
-    public void Delete(int Id) {
-
-    }
-
-    @Override
-    public void Add(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer) {
-
-
-    }
-
-    @Override
-    public void Update(int Id, String f, String l, String Email, int Phone, int Salary, String sp, int N_Class) {
-
+    public Class(ArrayList<Student> students, String trainers, String className, int id) {
+        this.students = students;
+        Trainers = trainers;
+        ClassName = className;
+        Id = id;
     }
 
 

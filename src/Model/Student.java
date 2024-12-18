@@ -5,17 +5,19 @@ import java.util.ArrayList;
 
 public class Student extends Person {
     private String  Trainer;
-
-    static ArrayList<Student> list = new ArrayList<>();
+    static  ArrayList<Student> list = new ArrayList<>();
+    static ArrayList<Double> notes=new ArrayList<>();
+    private    Class Classes;
 
 
     public Student(){
 
     }
 
-    public Student(int id, String firstName, String lastName, String email, int phone, int n_Class, String trainer) {
+    public Student(int id, String firstName, String lastName, String email, int phone, int n_Class, String trainer,Class classes) {
         super(id, firstName, lastName, email, phone, n_Class);
         Trainer=trainer;
+        this.Classes=classes;
 
     }
 
@@ -47,7 +49,7 @@ public class Student extends Person {
 
         for (int i = 0; i < list.size(); i++) {
             if (Id == list.get(i).getId()) {
-                list.add(Id,new Student(Id, f, l, Email, Phone, N_Class, Trainer));
+                list.add(Id,new Student(Id, f, l, Email, Phone, N_Class, Trainer,Classes));
                 ishere=true;
             }
 
@@ -83,12 +85,12 @@ public class Student extends Person {
 
     @Override
     public  void Add(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer) {
-        list.add(new Student(Id, f, l, Email, Phone, N_Class, Trainer));
+        list.add(new Student(Id, f, l, Email, Phone, N_Class, Trainer,Classes));
     }
 
     @Override
     public void Update(int Id, String f, String l, String Email, int Phone, int Salary, String sp, int N_Class) {
-
+// For trainer
     }
 
 

@@ -35,45 +35,45 @@ public class ClassMenu {
                 choose = Integer.parseInt(Input.getinput());
                 switch (choose) {
                     case 1:
-                        System.out.println("\n    Add New Trainer\n");
+                        System.out.println("\n    Add New Class\n");
 
                         break;
 
 
                     case 2:
-                        System.out.println("\n    Delete A trainer\n");
+                        System.out.println("\n    Delete A Class\n");
                         if () {
                         } else {
-                            System.out.println("\n\n   No Trainers To Delete");
+                            System.out.println("\n\n   No Class To Delete");
                         }
                         break;
 
                     case 3:
-                        System.out.println("\n    Update A Trainer info\n");
+                        System.out.println("\n    Update A Class info\n");
                         if () {
 
                         } else {
-                            System.out.println("\n\n   No Trainers To Update");
+                            System.out.println("\n\n   No Class To Update");
                         }
 
                         break;
 
                     case 4:
-                        System.out.println("\n   Associated To class \n");
+                        System.out.println("\n   Associated S/T To class \n");
                         if () {
 
                         } else {
-                            System.out.println("\n\n   No Trainers  To Associate");
+                            System.out.println("\n\n   No S/T  To Associate");
                         }
 
                         break;
 
                     case 5:
-                        System.out.println("\n    Display All Trainers \n");
+                        System.out.println("\n    Display All Classes \n");
 
                         if () {
                         } else {
-                            System.out.println("\n\n   No Trainers To Display");
+                            System.out.println("\n\n   No Classes To Display");
                         }
                         break;
 
@@ -86,7 +86,7 @@ public class ClassMenu {
 
 
             } catch (Exception e) {
-                System.out.println("An Error Occured");
+                System.out.println("\n\n    An Error Occured \n\n");
             }
         }
     }

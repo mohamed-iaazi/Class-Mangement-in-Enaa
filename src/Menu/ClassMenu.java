@@ -1,8 +1,9 @@
 package Menu;
 
 import Utils.Input;
+import interfaces.FuncClass;
 
-public class ClassMenu {
+public class ClassMenu implements FuncClass {
 
     public static void C_Menu() {
         int choose = 0;
@@ -92,4 +93,23 @@ public class ClassMenu {
     }
 
 
+    @Override
+    public void add() {
+
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    @Override
+    public boolean display() {
+        return false;
+    }
 }

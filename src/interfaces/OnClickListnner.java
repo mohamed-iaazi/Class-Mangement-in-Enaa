@@ -1,4 +1,5 @@
 package interfaces;
 
-public class OnClickListnner {
+public interface OnClickListnner {
+    void OnClick(int var1);
 }

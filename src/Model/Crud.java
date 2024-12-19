@@ -1,4 +1,11 @@
 package Model;
 
-public class Crud {
+public abstract class Crud {
+
+    public    abstract   void Add();
+    public    abstract void Delete();
+    public    abstract void Update();
+    public    abstract void Display();
+
+
 }

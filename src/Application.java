@@ -41,13 +41,11 @@ public class Application implements SubMenus, OnClickListnner {
             try {
                 System.out.print("   Enter Your Choice : ");
                 selected = Integer.parseInt(Input.getinput());
-                if (Input.InputVal(String.valueOf(selected))) {
                     application.OnClick(selected);
-                } else {
-                    System.out.println("  You Cant Send an Empty Value");
-                }
-            } catch (Exception var3) {
-                System.out.println("   Error :");
+
+            } catch (Exception e) {
+                System.out.println("\n\n   An Error Occurred " +e);
+
             }
         }
 

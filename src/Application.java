@@ -1,15 +1,23 @@
+import Menu.ClassMenu;
 import Menu.StudentMenu;
 import Menu.TrainerMenu;
+import Model.Student;
 import Utils.Input;
+
+import java.util.ArrayList;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main  {
+public class Application {
     private  static int  choose;
-   static TrainerMenu trainerMenu=new TrainerMenu();
-   static  StudentMenu studentMenu=new StudentMenu();
+   static TrainerMenu trainerMenu;
+   static  StudentMenu studentMenu;
+   static ClassMenu classMenu;
+   Student S=new Student();
+   static  ArrayList<Student> students=new ArrayList<>();
 
     public static void main(String[] args) {
+
         while (choose != 4) {
             Menu();
         }
@@ -22,7 +30,7 @@ public class Main  {
                            
                                        *******************************************
                                        *                                         *
-                                      *                                         *
+                                       *                                         *
                                        *                  Menu                   *
                                        *                                         *
                                        *                                         *
@@ -43,15 +51,17 @@ public class Main  {
             switch (choose){
                 case 1:
                     System.out.println("\n   Welcome to Enaa Mangement System Students\n");
-                    studentMenu.S_Menu();
+                    StudentMenu.S_Menu();
 
                     break;
                 case 2:
                     System.out.println("\n   Welcome to Enaa Mangement System Trainers\n");
-                    trainerMenu.T_Menu();
+                    TrainerMenu.T_Menu();
                     break;
                 case 3:
                     System.out.println("\n   Welcome to Enaa Mangement System Classes\n");
+                    ClassMenu.C_Menu();
+
                     break;
             }
 

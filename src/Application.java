@@ -42,7 +42,7 @@ public class Application implements SubMenus, OnClickListnner {
                 System.out.print("   Enter Your Choice : ");
                 selected = Integer.parseInt(Input.getinput());
                 if (Input.InputVal(String.valueOf(selected))) {
-                    application.Listnner(selected);
+                    application.OnClick(selected);
                 } else {
                     System.out.println("  You Cant Send an Empty Value");
                 }

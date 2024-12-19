@@ -1,32 +1,25 @@
-import Menu.ClassMenu;
-import Menu.StudentMenu;
-import Menu.TrainerMenu;
-import Model.Student;
+/*
+* */
+
+
+import Menu.ClassesMenu;
+import Menu.StudentsMenu;
+import Menu.TrainersMenu;
 import Utils.Input;
+import interfaces.OnClickListnner;
+import interfaces.SubMenus;
 
-import java.util.ArrayList;
+public class Application implements SubMenus, OnClickListnner {
+    static Application application = new Application();
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Application {
-    private  static int  choose;
-   static TrainerMenu trainerMenu;
-   static  StudentMenu studentMenu;
-   static ClassMenu classMenu;
-   Student S=new Student();
-   static  ArrayList<Student> students=new ArrayList<>();
-
-    public static void main(String[] args) {
-
-        while (choose != 4) {
-            Menu();
-        }
+    public Application() {
     }
 
-   static private void  Menu(){
+    public static void main(String[] args) {
+        int selected = 0;
 
-
-        System.out.println("""
+        while(selected != 4) {
+            System.out.println("""
                            
                                        *******************************************
                                        *                                         *
@@ -45,33 +38,43 @@ public class Application {
                 
                 
                            """);
-        try {
-            System.out.print("   Enter Your Choice : ");
-            choose= Integer.parseInt(Input.getinput());
-            switch (choose){
-                case 1:
-                    System.out.println("\n   Welcome to Enaa Mangement System Students\n");
-                    StudentMenu.S_Menu();
-
-                    break;
-                case 2:
-                    System.out.println("\n   Welcome to Enaa Mangement System Trainers\n");
-                    TrainerMenu.T_Menu();
-                    break;
-                case 3:
-                    System.out.println("\n   Welcome to Enaa Mangement System Classes\n");
-                    ClassMenu.C_Menu();
-
-                    break;
+            try {
+                System.out.print("   Enter Your Choice : ");
+                selected = Integer.parseInt(Input.getinput());
+                if (Input.InputVal(String.valueOf(selected))) {
+                    application.Listnner(selected);
+                } else {
+                    System.out.println("  You Cant Send an Empty Value");
+                }
+            } catch (Exception var3) {
+                System.out.println("   Error :");
             }
-
         }
-        catch (Exception e){
-            System.out.println("An Error Occured");
-        }
-
 
     }
 
+    public void StudentMenu() {
+        StudentsMenu.Menu();
+    }
 
+    public void ClassMenu() {
+        ClassesMenu.Menu();
+    }
+
+    public void TrainerMenu() {
+        TrainersMenu.Menu();
+    }
+
+
+
+    @Override
+    public void OnClick(int menu) {
+        switch (menu) {
+            case 1 -> application.StudentMenu();
+            case 2 -> application.TrainerMenu();
+            case 3 -> application.ClassMenu();
+            case 4 -> System.exit(0);
+        }
+    }
 }
+

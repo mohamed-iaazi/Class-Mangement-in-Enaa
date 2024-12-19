@@ -4,18 +4,18 @@ package Model;
 import java.util.ArrayList;
 
 public class Student extends Person  {
-    private  ArrayList<Student> Studentlist;
-    static ArrayList<Double> notes = new ArrayList<>();
-    private Classe Classes;
+    private  static    ArrayList<Student> Studentlist;
+      private  static ArrayList<Double> notes = new ArrayList<>();
+      private Classe Classes;
 
-    public Student(int id, String firstName, String lastName, String email,ArrayList<Student> studentlist) {
+    public Student(int id, String firstName, String lastName, String email) {
         super(id, firstName, lastName, email);
-        this.Studentlist=studentlist;
     }
 
     public Student() {
-
     }
+
+
 
     public  ArrayList<Student> getStudentlist() {
         return Studentlist;

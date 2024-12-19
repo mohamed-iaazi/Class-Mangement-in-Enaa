@@ -1,12 +1,26 @@
 package Utils;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Input {
 
-  static private  Scanner scanner ;
-    public static String getinput(){
+    static Scanner scanner;
+
+    public Input() {
+    }
+
+    public boolean EmailVal() {
+        return false;
+    }
+
+    public static boolean InputVal(String s) {
+        Optional optional = Optional.ofNullable(s);
+        return optional.isPresent();
+    }
+
+    public static String getinput() {
         scanner = new Scanner(System.in);
-        return   scanner.nextLine();
+        return scanner.next();
     }
 }

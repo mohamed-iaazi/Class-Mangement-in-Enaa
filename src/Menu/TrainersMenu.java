@@ -78,7 +78,7 @@ public class TrainersMenu extends Crud implements OnClickListnner {
                 System.out.print("     Enter The Salary of the Trainer :");
                 String salary = Input.getinput();
                 Id = Id + 1;
-                trainer.Add(Id, FirstName, LastName, Email, Phone, N_Class, salary);
+               // trainer.Add(Id, FirstName, LastName, Email, Phone, N_Class, salary);
                 error = false;
             } catch (Exception e) {
                 System.out.println("\n\n   Oops An Error Occurred  ");
@@ -92,7 +92,7 @@ public class TrainersMenu extends Crud implements OnClickListnner {
     public void Delete() {
         System.out.print("Enter The ID Of the Trainer : ");
         int id = Integer.parseInt(Input.getinput());
-        trainer.Delete(id);
+        //trainer.Delete(id);
 
     }
 
@@ -117,7 +117,7 @@ public class TrainersMenu extends Crud implements OnClickListnner {
                 String Trainer = Input.getinput();
                 Id = Id + 1;
 
-                trainer.Update(Id, FirstName, LastName, Email, Phone, N_Class, Trainer);
+              //  trainer.Update(Id, FirstName, LastName, Email, Phone, N_Class, Trainer);
                 error = false;
             } catch (Exception e) {
                 System.out.println("\n\n   Oops An Error Occurred  ");
@@ -136,13 +136,13 @@ public class TrainersMenu extends Crud implements OnClickListnner {
         System.out.print("\n\n   Enter The Number Of The Class You Want To associate : ");
         int c=Integer.parseInt(Input.getinput());
         // call the assosiate function in the trainer model  adn it takes two param
-        Trainer.ass(id,c);
+      //  Trainer.ass(id,c);
     }
 
 
     @Override
     public void Display() {
-        trainer.Display();
+       // trainer.Display();
     }
 
 

@@ -1,15 +1,23 @@
 package Menu;
 
+import Model.Classe;
 import Model.Crud;
 import Model.Student;
+import Model.Trainer;
 import Utils.Input;
 import interfaces.OnClickListnner;
+
+import java.util.ArrayList;
 
 public class StudentsMenu extends Crud implements OnClickListnner {
     // var
     static  private int Id;
     static  boolean error=false;
     static Student student = new Student();
+     ArrayList<Student> StudentList=new ArrayList<>();
+     ArrayList<Trainer> TrainerList=new ArrayList<>();
+     ArrayList<Classe> ClassList=new ArrayList<>();
+
 
 
     // Sub Menu of student
@@ -63,7 +71,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
 
     @Override
     public void Display() {
-        student.Display();
+
     }
 
     @Override
@@ -77,14 +85,8 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                 String LastName=Input.getinput();
                 System.out.print("     Enter The Email of the Student: ");
                 String Email=Input.getinput();
-                System.out.print("     Enter The Phone of the Student :");
-                int Phone=Integer.parseInt(Input.getinput());
-                System.out.print("     Enter The Class of the Student :");
-                int N_Class=Integer.parseInt(Input.getinput());
-                System.out.print("     Enter The Trainer of the Student :");
-                String Trainer=Input.getinput();
+                StudentList.add(new Student(Id,FirstName,LastName,Email,StudentList));
                 Id=Id+1;
-                student.Add(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
                 error=false;
             }
             catch (Exception e){
@@ -98,37 +100,58 @@ public class StudentsMenu extends Crud implements OnClickListnner {
 
     @Override
     public void Delete() {
+        boolean found = false;
         System.out.print("Enter The ID Of the Student : ");
         int id=Integer.parseInt(Input.getinput());
-        student.Delete(id);
+        for (int i = 0; i < StudentList.size(); i++) {
+            if (id == StudentList.get(i).getId()) {
+                id = i;
+                found = true;
+            }
+        }
+        if (found) {
+            StudentList.remove(id);
+            System.out.println("\n\n      Deleted With Success");
+
+        } else {
+            System.out.println("\n\n      Ops Not Found");
+        }
     }
 
     @Override
     public void Update() {
         error=false;
-        if (student.Display()) {
+        if (!StudentList.isEmpty()) {
             do {
                 try {
-                    System.out.println("\n\n   update try!");
-                    System.out.print("     Enter The First name of the Student: ");
-                    String FirstName= Input.getinput();
-                    System.out.print("     Enter The Last name of the Student: ");
-                    String LastName=Input.getinput();
-                    System.out.print("     Enter The Email of the Student: ");
-                    String Email=Input.getinput();
-                    System.out.print("     Enter The Phone of the Student :");
-                    int Phone=Integer.parseInt(Input.getinput());
-                    System.out.print("     Enter The Class of the Student :");
-                    int N_Class=Integer.parseInt(Input.getinput());
-                    System.out.print("     Enter The Trainer of the Student :");
-                    String Trainer=Input.getinput();
-                    Id=Id+1;
+                    System.out.println("\n\n   Enter The Id Of Student To Update : ");
+                    int id=Integer.parseInt(Input.getinput());
+                    for(int i =0 ; i<StudentList.size();i++){
+                     if (id==StudentList.get(i).getId())
+                     {
+                         System.out.print("     Enter The First name of the Student: ");
+                         String FirstName= Input.getinput();
+                         System.out.print("     Enter The Last name of the Student: ");
+                         String LastName=Input.getinput();
+                         System.out.print("     Enter The Email of the Student: ");
+                         String Email=Input.getinput();
+                         System.out.print("     Enter The Class of the Student :");
+                         StudentList.set(id,new Student(Id,FirstName,LastName,Email,StudentList));
 
-                    student.Update(Id,FirstName,LastName,Email,Phone,N_Class,Trainer);
-                    error=false;
+                         error=false;
+                     }
+                    }
+                    if (!error){
+                        System.out.println("\n\n   Your Student Update With Success");
+                    }
+                    else {
+                        System.out.println("\n\n   The ID Doesn't Match Ant Student ");
+
+                    }
+
                 }
                 catch (Exception e){
-                    System.out.println("  Oops An Error Occured  ");
+                    System.out.println("  Oops An Error Occurred  ");
                     error=true;
                 }
             }

@@ -3,95 +3,41 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
-    private String  Trainer;
-    static  ArrayList<Student> list = new ArrayList<>();
-    static ArrayList<Double> notes=new ArrayList<>();
-    private    Class Classes;
+public class Student extends Person  {
+    private  ArrayList<Student> Studentlist;
+    static ArrayList<Double> notes = new ArrayList<>();
+    private Classe Classes;
 
+    public Student(int id, String firstName, String lastName, String email,ArrayList<Student> studentlist) {
+        super(id, firstName, lastName, email);
+        this.Studentlist=studentlist;
+    }
 
-    public Student(){
+    public Student() {
 
     }
 
-    public Student(int id, String firstName, String lastName, String email, int phone, int n_Class, String trainer,Class classes) {
-        super(id, firstName, lastName, email, phone, n_Class);
-        Trainer=trainer;
-        this.Classes=classes;
-
+    public  ArrayList<Student> getStudentlist() {
+        return Studentlist;
     }
 
-
-
-    @Override
-    public boolean Display() {
-
-        if (list.isEmpty()){
-            System.out.println("\n\n   Ops No Student To Display ");
-            return false;
-        }
-        else {
-            for (int i=0;i< list.size();i++) {
-                System.out.print( "\n\n  The Id : "+list.get(i).getId()+"\n  First Name : "+list.get(i).getFirstName()+"\n  Last Name : "+list.get(i).getLastName()
-                        + "\n  Number phone : "+getPhone()+"\n  Email : "
-                        +list.get(i).getEmail()+"\n  Trainer : "+ list.get(i).Trainer+"\n  Class : "+list.get(i).getN_Class());
-            }
-
-            return true;
-        }
-
+    public  void setStudentlist(ArrayList<Student> studentlist) {
+        Studentlist = studentlist;
     }
 
-    @Override
-    public void Update(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer) {
-
-        boolean ishere=false;
-
-        for (int i = 0; i < list.size(); i++) {
-            if (Id == list.get(i).getId()) {
-                list.add(Id,new Student(Id, f, l, Email, Phone, N_Class, Trainer,Classes));
-                ishere=true;
-            }
-
-        }
-
-        if (ishere){
-            System.out.println("\n\n   Your Student Update With Success");
-        }
-        else {
-            System.out.println("\n\n   Ops Not Found !");
-
-        }
+    public  ArrayList<Double> getNotes() {
+        return notes;
     }
 
-    @Override
-    public void Delete(int id) {
-
-        boolean found = false;
-        for (int i = 0; i < list.size(); i++) {
-            if (id == list.get(i).getId()) {
-                id = i;
-                found = true;
-            }
-        }
-        if (found) {
-            list.remove(id);
-            System.out.println("\n\n      Deleted With Success");
-
-        } else {
-            System.out.println("\n\n      Ops Not Found");
-        }
+    public  void setNotes(ArrayList<Double> notes) {
+        Student.notes = notes;
     }
 
-    @Override
-    public  void Add(int Id, String f, String l, String Email, int Phone, int N_Class, String Trainer) {
-        list.add(new Student(Id, f, l, Email, Phone, N_Class, Trainer,Classes));
+    public Classe getClasses() {
+        return Classes;
     }
 
-    @Override
-    public void Update(int Id, String f, String l, String Email, int Phone, int Salary, String sp, int N_Class) {
-// For trainer
+    public void setClasses(Classe classes) {
+        Classes = classes;
     }
-
-
 }

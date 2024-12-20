@@ -11,15 +11,15 @@ import java.util.ArrayList;
 
 public class StudentsMenu extends Crud implements OnClickListnner {
     // var
-     static private int Id;
-     static boolean error = false;
+   static int Id;
+    boolean error = false;
     static   ArrayList<Student> StudentList=new ArrayList<>();
-    Student student=new Student();
+    static  Student student=new Student();
 
     // Sub Menu of student
     public static void Menu() {
         int choose = 0;
-        while (choose != 5) {
+        while (choose != 6) {
             System.out.println("""
                     
                     
@@ -60,8 +60,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
             case 3 -> Update();
             case 4 -> Display();
             case 5 -> Associate();
-            case 6 -> System.exit(0);
-
+            case 6 -> System.out.print("\n\n    Back To Main Menu"); //back;
         }
 
     }
@@ -83,52 +82,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
     }
     @Override
     public void Associate() {
-        boolean found = false;
-        System.out.print("\n\n    Enter The ID Of the Student You Want To Associate : ");
-        int id = Integer.parseInt(Input.getinput());
-                if (!StudentList.isEmpty()) {
-                    for (Student student : StudentList) {
-                        if (id == student.getId()) {
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (found) {
-                        System.out.print("\n\n   1) Associate TO A Class  : ");
-                        System.out.print("\n\n   1) Associate TO A Trainer  : ");
-                        int selected= Integer.parseInt(Input.getinput());
-                        switch (selected){
-                            case 1:
-                                System.out.print("\n\n   Enter The Class Id You want To Associate TO : ");
-                                int classid= Integer.parseInt(Input.getinput());
 
-                                for (int i=0;i<Classe.getStudents().size();i++){
-                                    //student.setClasses(student);
-                                }
-                                break;
-                            case 2:
-                                System.out.print("\n\n   Enter The Trainer Id You want To Associate TO : ");
-                                int Trainerid= Integer.parseInt(Input.getinput());
-                                for (int i=0;i<Trainer.getTrainersList().size();i++){
-
-                                }
-                                break;
-                        }
-
-
-
-                    }
-                    else    {
-                        System.out.println("\n\n      Ops Not Found");
-
-                           }
-                            }
-                      else
-
-                        {
-                            System.out.println("\n\n   No Student  To Associate ");
-
-                        }
     }
     @Override
     public void Add() {
@@ -141,7 +95,14 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                 String LastName=Input.getinput();
                 System.out.print("     Enter The Email of the Student: ");
                 String Email=Input.getinput();
-                Id=Id+1;
+
+                if (!StudentList.isEmpty()){
+                    Id=StudentList.getLast().getId()+1;
+                }
+                else {
+                    Id=Id+1;
+                }
+
                 StudentList.add(new Student(Id,FirstName,LastName,Email));
                 student.setStudentlist(StudentList);
 
@@ -167,10 +128,11 @@ public class StudentsMenu extends Crud implements OnClickListnner {
         for (int i = 0; i < StudentList.size(); i++) {
             if (id == StudentList.get(i).getId()) {
                 found = true;
+                id=i;
             }
         }
         if (found) {
-            StudentList.remove(id-1);
+            StudentList.remove(id);
             System.out.println("\n\n      Deleted With Success");
 
         } else {
@@ -185,15 +147,19 @@ public class StudentsMenu extends Crud implements OnClickListnner {
     public void Update() {
         error=false;
         boolean found=false;
+        int origineid=0;
         if (!StudentList.isEmpty()) {
             do {
                 try {
                     System.out.println("\n\n   Enter The Id Of Student To Update : ");
                     int id=Integer.parseInt(Input.getinput());
+                    origineid=id;
+
                     for(int i =0 ; i<StudentList.size();i++){
                      if (id==StudentList.get(i).getId())
                      {
                          found=true;
+                         id=i;
                      }
                     }
 
@@ -205,7 +171,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                         String LastName=Input.getinput();
                         System.out.print("     Enter The Email of the Student: ");
                         String Email=Input.getinput();
-                        StudentList.set(id-1,new Student(Id,FirstName,LastName,Email));
+                        StudentList.set(id,new Student(origineid,FirstName,LastName,Email));
                         System.out.println("\n\n   Your Student Update With Success");
                         error=false;
                     }

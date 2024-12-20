@@ -5,18 +5,19 @@ import java.util.ArrayList;
 public class Classe {
 
 
-    private static   ArrayList<Student> students =new ArrayList<>();
-    private String Trainers ;
-    private  String ClassName;
-    private  int Id;
+    private static ArrayList<Student> students = new ArrayList<>();
+    private static ArrayList<Classe> classes=new ArrayList<>();
+    private Trainer Trainers;
+    private String ClassName;
+    private int Id;
 
-
-
-    public Classe(ArrayList<Student> students, String trainers, String className, int id) {
-        this.students = students;
-        Trainers = trainers;
-        ClassName = className;
+    public Classe(int id, String className) {
         Id = id;
+        ClassName = className;
+    }
+
+    public  Classe(){
+
     }
 
     public static ArrayList<Student> getStudents() {
@@ -27,11 +28,19 @@ public class Classe {
         Classe.students = students;
     }
 
-    public String getTrainers() {
+    public static ArrayList<Classe> getClasses() {
+        return classes;
+    }
+
+    public static void setClasses(ArrayList<Classe> classes) {
+        Classe.classes = classes;
+    }
+
+    public Trainer getTrainers() {
         return Trainers;
     }
 
-    public void setTrainers(String trainers) {
+    public void setTrainers(Trainer trainers) {
         Trainers = trainers;
     }
 

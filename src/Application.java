@@ -1,5 +1,3 @@
-/*
-* */
 
 
 import Menu.ClassesMenu;
@@ -7,13 +5,11 @@ import Menu.StudentsMenu;
 import Menu.TrainersMenu;
 import Utils.Input;
 import interfaces.OnClickListnner;
-import interfaces.SubMenus;
 
-public class Application implements SubMenus, OnClickListnner {
+
+public class Application implements OnClickListnner {
     static Application application = new Application();
 
-    public Application() {
-    }
 
     public static void main(String[] args) {
         int selected = 0;
@@ -39,6 +35,7 @@ public class Application implements SubMenus, OnClickListnner {
                 
                            """);
             try {
+
                 System.out.print("   Enter Your Choice : ");
                 selected = Integer.parseInt(Input.getinput());
                     application.OnClick(selected);
@@ -50,21 +47,15 @@ public class Application implements SubMenus, OnClickListnner {
         }
 
     }
-
     public void StudentMenu() {
         StudentsMenu.Menu();
     }
-
     public void ClassMenu() {
         ClassesMenu.Menu();
     }
-
     public void TrainerMenu() {
         TrainersMenu.Menu();
     }
-
-
-
     @Override
     public void OnClick(int menu) {
         switch (menu) {

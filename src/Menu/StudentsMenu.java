@@ -82,6 +82,26 @@ public class StudentsMenu extends Crud implements OnClickListnner {
     }
     @Override
     public void Associate() {
+        boolean isavailable = false,Error=false;
+        int OrogineId=0;
+
+        // get the user iid to update
+        System.out.print("\n\n   Enter The Id of The Student   : ");
+        int id=Integer.parseInt(Input.getinput());
+        OrogineId=id;
+        System.out.print("\n\n   Enter The Name  Of The Class You Want To associate : ");
+        String c=Input.getinput();
+        for (int i = 0; i <Classe.getClasses().size() ; i++) {
+            if (c.equals(Classe.getClasses().get(i).getClassName())){
+                isavailable=true;
+                id=i;
+            }
+        }
+        if (isavailable){
+
+        }
+
+
 
     }
     @Override
@@ -172,6 +192,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                         System.out.print("     Enter The Email of the Student: ");
                         String Email=Input.getinput();
                         StudentList.set(id,new Student(origineid,FirstName,LastName,Email));
+                        student.setStudentlist(StudentList);
                         System.out.println("\n\n   Your Student Update With Success");
                         error=false;
                     }

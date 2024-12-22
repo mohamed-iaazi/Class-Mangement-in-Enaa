@@ -4,33 +4,28 @@ package Model;
 import java.util.ArrayList;
 
 public class Student extends Person  {
-    private  static    ArrayList<Student> Studentlist;
-      private  static ArrayList<Double> notes = new ArrayList<>();
-      private Classe Classes;
 
-    public Student(int id, String firstName, String lastName, String email) {
+      private   ArrayList<Double> notes = new ArrayList<>();
+      private  Classe Classes;
+
+    public Student(int id, String firstName, String lastName, String email, ArrayList<Double> notes, Classe classes) {
         super(id, firstName, lastName, email);
+        this.notes = notes;
+        Classes = classes;
     }
+
+
 
     public Student() {
     }
 
-
-
-    public  ArrayList<Student> getStudentlist() {
-        return Studentlist;
-    }
-
-    public  void setStudentlist(ArrayList<Student> studentlist) {
-        Studentlist = studentlist;
-    }
 
     public  ArrayList<Double> getNotes() {
         return notes;
     }
 
     public  void setNotes(ArrayList<Double> notes) {
-        Student.notes = notes;
+        this.notes = notes;
     }
 
     public Classe getClasses() {

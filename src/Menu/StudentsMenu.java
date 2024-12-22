@@ -9,6 +9,7 @@ import interfaces.OnClickListnner;
 
 import java.util.ArrayList;
 
+
 public class StudentsMenu extends Crud implements OnClickListnner {
     // var
    static int Id;
@@ -18,6 +19,7 @@ public class StudentsMenu extends Crud implements OnClickListnner {
 
     // Sub Menu of student
     public static void Menu() {
+
         int choose = 0;
         while (choose != 6) {
             System.out.println("""
@@ -67,10 +69,10 @@ public class StudentsMenu extends Crud implements OnClickListnner {
     @Override
     public void Display() {
 
-        if (student.getStudentlist().isEmpty()) {
+        if (StudentList.isEmpty()) {
             System.out.println("\n\n   Ops No Student To Display ");
         } else {
-            for (Student value : student.getStudentlist()) {
+            for (Student value : StudentList) {
                 System.out.print("\n\n  The Id : " + value.getId() + "\n  First Name : " + value.getFirstName() +
                         "\n  Last Name : " + value.getLastName()
                         + "\n  Email : "
@@ -82,23 +84,40 @@ public class StudentsMenu extends Crud implements OnClickListnner {
     }
     @Override
     public void Associate() {
+
         boolean isavailable = false,Error=false;
         int OrogineId=0;
 
         // get the user iid to update
         System.out.print("\n\n   Enter The Id of The Student   : ");
         int id=Integer.parseInt(Input.getinput());
+        for (Student student1 :StudentList){
+            if (student1.getId()==id){
+
+            }
+        }
+
+
         OrogineId=id;
         System.out.print("\n\n   Enter The Name  Of The Class You Want To associate : ");
         String c=Input.getinput();
-        for (int i = 0; i <Classe.getClasses().size() ; i++) {
-            if (c.equals(Classe.getClasses().get(i).getClassName())){
+
+        for (int i = 0; i <ClassesMenu.classes.size() ; i++) {
+            if (c.equals(ClassesMenu.classes.get(i).getClassName())){
                 isavailable=true;
                 id=i;
             }
         }
         if (isavailable){
 
+            ClassesMenu.classes.add(id,new Classe(id,ClassesMenu.classes.get(id).getClassName(),null,null));
+
+            for (int i = 0; i < ClassesMenu.classes.size(); i++) {
+                if (id==ClassesMenu.classes.get(i).getId()){
+                    System.out.print("\n\n   Result  "+ClassesMenu.classes.get(i).getStudents().get(i).getFirstName());
+
+                }
+            }
         }
 
 
@@ -123,8 +142,8 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                     Id=Id+1;
                 }
 
-                StudentList.add(new Student(Id,FirstName,LastName,Email));
-                student.setStudentlist(StudentList);
+                StudentList.add(new Student(Id,FirstName,LastName,Email,null,null));
+
 
                 error=false;
             }
@@ -191,8 +210,8 @@ public class StudentsMenu extends Crud implements OnClickListnner {
                         String LastName=Input.getinput();
                         System.out.print("     Enter The Email of the Student: ");
                         String Email=Input.getinput();
-                        StudentList.set(id,new Student(origineid,FirstName,LastName,Email));
-                        student.setStudentlist(StudentList);
+                        StudentList.set(id,new Student(origineid,FirstName,LastName,Email,null,null));
+
                         System.out.println("\n\n   Your Student Update With Success");
                         error=false;
                     }

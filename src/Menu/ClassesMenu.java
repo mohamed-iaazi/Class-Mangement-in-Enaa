@@ -12,7 +12,6 @@ public class ClassesMenu extends Crud implements OnClickListnner {
     static int Id;
     boolean error = false;
     static ArrayList<Classe> classes=new ArrayList<>();
-    Classe classe=new Classe();
     public static void Menu() {
         int choose=0;
         while (choose != 6) {
@@ -54,6 +53,7 @@ public class ClassesMenu extends Crud implements OnClickListnner {
 
     @Override
     public void Add() {
+
         do {
             try {
                 System.out.print("     Enter The Class name : ");
@@ -64,7 +64,9 @@ public class ClassesMenu extends Crud implements OnClickListnner {
                 else {
                     Id=Id+1;
                 }
-                classes.add(new Classe(Id,name));
+                classes.add(new Classe(Id,name,null,null));
+
+
                 error = false;
             } catch (Exception e) {
                 System.out.println("\n\n   Oops An Error Occurred  ");
@@ -127,7 +129,7 @@ public class ClassesMenu extends Crud implements OnClickListnner {
                     if (found){
                         System.out.print("     Enter The  name of the Class: ");
                         String name= Input.getinput();
-                        classes.set(id,new Classe(origineid,name));
+                        classes.set(id,new Classe(origineid,name,null,null));
                         System.out.println("\n\n   Your Class Update With Success");
                         error=false;
                     }

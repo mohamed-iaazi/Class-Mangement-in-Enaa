@@ -4,37 +4,30 @@ import java.util.ArrayList;
 
 public class Classe {
 
-
-    private static ArrayList<Student> students = new ArrayList<>();
-    private static ArrayList<Classe> classes=new ArrayList<>();
+    private ArrayList<Student> students;
     private Trainer Trainers;
     private String ClassName;
     private int Id;
 
-    public Classe(int id, String className) {
+    public Classe(int id, String className,ArrayList<Student> students,Trainer trainer) {
         Id = id;
         ClassName = className;
+        this.students=students;
+        this.Trainers=trainer;
     }
 
     public  Classe(){
 
     }
 
-    public static ArrayList<Student> getStudents() {
+    public  ArrayList<Student> getStudents() {
         return students;
     }
 
-    public static void setStudents(ArrayList<Student> students) {
-        Classe.students = students;
+    public  void setStudents(ArrayList<Student> students) {
+        students = students;
     }
 
-    public static ArrayList<Classe> getClasses() {
-        return classes;
-    }
-
-    public static void setClasses(ArrayList<Classe> classes) {
-        Classe.classes = classes;
-    }
 
     public Trainer getTrainers() {
         return Trainers;

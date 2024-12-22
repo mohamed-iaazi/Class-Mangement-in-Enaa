@@ -15,7 +15,7 @@ public class ClassesMenu extends Crud implements OnClickListnner {
     Classe classe=new Classe();
     public static void Menu() {
         int choose=0;
-        while (choose != 5) {
+        while (choose != 6) {
             System.out.println("""
                     
                       
